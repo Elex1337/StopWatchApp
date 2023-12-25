@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="StopWatchApp_0._2.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="PageBackgroundStyle" TargetType="ContentPage">
+                <Setter Property="Background" Value="LightSkyBlue"/>
+            </Style>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="120"/>
+                <Setter Property="TextColor" Value="Black"/> 
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
+            <Style x:Key="IconStyle" TargetType="Image">
+                <Setter Property="WidthRequest" Value="120"/>
+                <Setter Property="HeightRequest" Value="120"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Style>
+        <Style TargetType="ContentPage" BasedOn="{StaticResource PageBackgroundStyle}"/>
+    </ContentPage.Style>
+
+    <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center">
+        <Label Text="{Binding TimerText}" Style="{StaticResource LabelStyle}"/>
+        <Image Source="settimer_icon.png" Style="{StaticResource IconStyle}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding StartCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="reset_icon.png" Style="{StaticResource IconStyle}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding StopCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+        <Image Source="pause_coun_icon.png" Style="{StaticResource IconStyle}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding PauseResumeCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+    </FlexLayout>
+</ContentPage>
